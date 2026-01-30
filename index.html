@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReinSense – Smart Horse Health</title>
+  <style>
+    :root {
+      --bg-dark: #1E1F23;
+      --bg-card: #2C2F33;
+      --accent-gold: #5C4A1F;
+      --accent-green: #1E1F23;
+      --text-light: #F2F2F2;
+      --text-muted: #B0B0B0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #F2F3F5 0%, #2C2F33 45%, #1E1F23 100%);
+      color: var(--text-light);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+    }
+    .logo-img {
+      height: 56px;
+    }
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #0A0A0A;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--text-light);
+    }
+    .hero {
+      max-width: 1100px;
+      margin: 100px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: 48px;
+      margin-bottom: 16px;
+      color: var(--accent-green);
+    }
+    .hero-subtitle {
+      font-size: 18px;
+      max-width: 760px;
+      margin: 0 auto 32px;
+      color: var(--accent-green);
+      opacity: 0.85;
+    }
+    .cta {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 10px;
+      background: var(--accent-gold);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+    section {
+      max-width: 1100px;
+      margin: 120px auto;
+      padding: 0 24px;
+    }
+    section h2 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background: var(--bg-card);
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 220px;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    /* Full width images */
+    .full-width-section {
+      width: 100%;
+      padding: 0;
+      margin: 80px 0;
+    }
+    .product-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: -4px;
+      width: 100%;
+      margin-bottom: 64px; /* increased bottom margin to give breathing room before cards */
+    }
+    .product-images img {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      object-fit: contain;
+      display: block;
+      border-radius: 16px;
+    }
+    /* Feature boxes */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 64px; /* space after the new cards */
+    }
+    .feature-box {
+      background: var(--bg-card);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .feature-box strong {
+      display: block;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+    .feature-box:hover {
+      transform: translateY(-4px);
+      transition: 0.2s ease;
+    }
+    .newsletter {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .newsletter input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 12px;
+    }
+    footer {
+      padding: 60px 24px 40px;
+      text-align: center;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (max-width: 1024px) {
+      .product-images {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+      }
+      .product-images img {
+        height: 320px;
+      }
+    }
+    @media (max-width: 640px) {
+      .product-images {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .product-images img {
+        height: 260px;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 36px;
+      }
+      header {
+        padding: 16px 20px;
+      }
+      .logo-img {
+        height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="ReinSense logo" class="logo-img">
+  <nav>
+    <a href="#how">How it works</a>
+    <a href="#product">Product</a>
+    <a href="#partners">Partnerships</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<section class="hero">
+  <h1 class="hero-title">The reins of health.<br>Feeling what horses can’t say.</h1>
+  <p class="hero-subtitle">
+    ReinSense is a science-driven smart wearable platform for horses that enables
+    preventive healthcare through continuous monitoring of stress, pain and early
+    physiological changes — before visible symptoms appear.
+  </p>
+  <a class="cta" href="#contact">Become a pilot partner</a>
+</section>
+<section id="how">
+  <h2>How ReinSense works</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Sense</h3>
+      <p>
+        A smart wearable integrated into a tail protector continuously monitors
+        vital signs such as heart rate, respiration, basal temperature, movement,
+        location and environmental conditions — comfortably and unobtrusively.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Analyze</h3>
+      <p>
+        ReinSense learns each horse’s individual baseline and identifies
+        stress- and pain-related deviations using trend-based, rule-driven
+        anomaly detection supported by scientific research.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Act</h3>
+      <p>
+        Insights are delivered through the mobile app, enabling owners, trainers
+        and veterinarians to adjust training, care routines or seek veterinary
+        support earlier.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="product">
+  <h2>The ReinSense platform</h2>
+
+  <!-- Text cards first -->
+  <div class="grid">
+    <div class="card">
+      <h3>Smart wearable</h3>
+      <p>
+        A modular, tail-mounted device designed for continuous wear, weather
+        resistance and minimal interference with natural horse behaviour.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Mobile app & dashboard</h3>
+      <p>
+        An intuitive app visualizes health trends, activity and recovery, stores
+        medical history and generates automated reports for veterinarians.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Built for preventive care</h3>
+      <p>
+        ReinSense focuses on stress and pain — the root causes of many equine
+        diseases — improving welfare and reducing preventable health issues.
+      </p>
+    </div>
+  </div>
+
+  <!-- Side-by-side layout: feature boxes left, images right -->
+  <div style="display: flex; flex-wrap: wrap; gap: 48px; margin-top: 64px; align-items: flex-start; justify-content: space-between;">
+    <!-- Left: feature boxes -->
+    <div style="flex: 1 1 320px; max-width: 420px;">
+      <div class="feature-grid" style="margin-top: 0;">
+        <div class="feature-box"><strong>24/7 MONITORING</strong>HEALTH & CONDITION</div>
+        <div class="feature-box"><strong>HEALTH</strong>ALERTS</div>
+        <div class="feature-box"><strong>STRESS & PAIN</strong>MONITORING</div>
+        <div class="feature-box"><strong>VETERINARY</strong>CARE</div>
+        <div class="feature-box"><strong>GPS</strong>LOCATION</div>
+      </div>
+    </div>
+
+    <!-- Right: images -->
+    <div style="flex: 1 1 500px; max-width: 680px;">
+      <div class="full-width-section" style="margin: 0;">
+        <div class="product-images">
+          <img src="product1.jpg" alt="ReinSense wearable on horse">
+          <img src="product2.jpg" alt="ReinSense monitoring dashboard">
+          <img src="product3.jpg" alt="ReinSense tail wearable close up">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="partners">
+  <h2>Partnerships & collaboration</h2>
+  <p style="text-align:center; color: var(--text-muted); max-width:780px; margin:0 auto;">
+    ReinSense is developed in collaboration with veterinarians, riding clubs,
+    farms and research institutions. We are actively seeking partners interested
+    in pilot testing, research collaboration or technology development.
+  </p>
+</section>
+<section id="contact">
+  <h2>Stay in the loop</h2>
+  <div class="newsletter">
+    <p style="color: var(--text-muted);">
+      Be first to know about pilot programs, early testing opportunities,
+      partnerships and product updates.
+    </p>
+    <form action="https://formspree.io/f/mjgraoab" method="POST">
+      <input type="email" name="email" placeholder="Email address" required>
+      <button type="submit" class="cta">Stay in the loop</button>
+    </form>
+  </div>
+</section>
+<footer>
+  <p>
+    ReinSense is currently in development and does not provide veterinary or
+    medical diagnoses. Information supports preventive care and informed decisions.
+  </p>
+  <p>© 2026 ReinSense. All rights reserved.</p>
+</footer>
+</body>
+</html>
